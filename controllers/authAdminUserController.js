@@ -3,7 +3,7 @@ const { sendEmailService } = require("../services/emailService");
 const {
   createOTPService,
   verifyOTPService,
-} = require("../services/otpService");
+} = require("../services/OTPService");
 const { createUserService, loginService } = require("../services/userService");
 const { isValid } = require("../services/validationService");
 const { OtpGenerator } = require("../utils/commonFunction");
