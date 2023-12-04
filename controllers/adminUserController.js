@@ -1,4 +1,3 @@
-const { findOneAndUpdate } = require("../models/NotificationModel");
 const UserModel = require("../models/UserModel");
 const { successResponse, errorResponse } = require("../utils/responseHandler");
 const { responseMessage } = require("../utils/responseMessage");
@@ -21,9 +20,9 @@ exports.deleteUser = [
   async (req, res) => {
     const { id } = req.params;
     try {
-      const result = await findOneAndUpdate(
+      const result = await UserModel.findByIdAndUpdate(
         { _id: id },
-        { is_admin_deleted: true },
+        { $set: { is_admin_deleted: true } },
         { new: true }
       );
       return successResponse({

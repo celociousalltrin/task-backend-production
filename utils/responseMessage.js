@@ -26,6 +26,18 @@ const responseData = [
     code: "OK008",
     message: "The OTP is Verified",
   },
+  {
+    code: "OK009",
+    message: "Notification is Readed",
+  },
+  {
+    code: "OK010",
+    message: "All the Notifications is Cleared",
+  },
+  {
+    code: "OK011",
+    message: "Notification is Cleared",
+  },
   { code: "ER999", message: "Something went wrong" },
   { code: "ER001", message: "Requested Page not found" },
   { code: "ER002", message: "Email Does Not have any account" },

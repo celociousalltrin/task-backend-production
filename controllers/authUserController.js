@@ -5,7 +5,7 @@ const { sendEmailService } = require("../services/emailService");
 const {
   createOTPService,
   verifyOTPService,
-} = require("../services/OTPService");
+} = require("../services/otpService");
 const { createUserService, loginService } = require("../services/userService");
 const { isValid } = require("../services/validationService");
 const { OtpGenerator } = require("../utils/commonFunction");
@@ -37,8 +37,12 @@ exports.createUser = [
           status: 422,
         });
       }
-      const userId = await createUserService(UserModel, body, res, 1);
-      await createService(NotificationModel, { user_id: userId });
+      const user = await createUserService(UserModel, body, res, 1);
+      await createService(NotificationModel, {
+        user_id: user._id,
+        notify_type: 1,
+      });
+
       return successResponse({
         res,
         responseDetails: responseMessage("OK001"),
